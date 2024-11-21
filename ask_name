@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+declare -r text_green="$(tput setaf 2)"
+declare -r text_reset="$(tput sgr0)"
+declare -r text_bold="$(tput bold)"
+
+read -p "What is your name?: " name
+
+# Get the last character of the name
+last_char="${name: -1}"
+
+# Repeat the last character 5 times
+repeated_char=$(printf "%0.s$last_char" {1..5})
+
+echo "WAZZZZUP ${text_green}${text_bold}${name}${repeated_char}${text_reset}!"
+
