@@ -1,0 +1,21 @@
+
+#!/usr/bin/env bash
+
+declare -r text_red="$(tput setaf 1)"
+declare -r text_green="$(tput setaf 2)"
+declare -r text_blue="$(tput setaf 4)"
+declare -r text_bold="$(tput bold)"
+declare -r text_reset="$(tput sgr0)"
+declare -r line="_________________________________________"
+
+echo -e "${line}\n"
+echo "${text_red}${text_bold}Storage:${text_reset}"
+echo "Filesystem      Size  Used Avail Use% Mounted on"
+#df -h | grep {device path}
+df -h | grep /dev/sda2 
+echo -e "${line}\n"
+echo "${text_red}${text_bold}Webserver online?${text_reset}"
+systemctl status apache2.service | grep 'Active:' | sed 's/^[ \t]*//'
+echo -e "${line}\n"
+
+# more to come 
