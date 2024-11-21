@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 declare -r text_red="$(tput setaf 1)"
