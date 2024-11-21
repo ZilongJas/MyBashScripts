@@ -1,2 +1,2 @@
-random scripts by me
+random bash cripts by me
 
