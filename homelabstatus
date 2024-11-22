@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-declare -r text_red="$(tput setaf 1)"
-declare -r text_green="$(tput setaf 2)"
-declare -r text_blue="$(tput setaf 4)"
-declare -r text_bold="$(tput bold)"
-declare -r text_reset="$(tput sgr0)"
+text_red="$(tput setaf 1)"
+text_bold="$(tput bold)"
+text_reset="$(tput sgr0)"
+
+declare -r text_reset
+declare -r text_bold
+declare -r text_red
 declare -r line="_________________________________________"
 
 echo -e "${line}\n"
