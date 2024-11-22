@@ -1,22 +1,43 @@
 #!/usr/bin/env bash
 
+# Define text styles and colors using tput
 text_red="$(tput setaf 1)"
 text_bold="$(tput bold)"
 text_reset="$(tput sgr0)"
+text_blue="$(tput setaf 4)"
 
+# Get the full path of the current script
+CURRENT_PATH=$(realpath -- "${BASH_SOURCE[0]}")
+
+# Declare constants as read-only
 declare -r text_reset
 declare -r text_bold
 declare -r text_red
-declare -r line="_________________________________________"
+declare -r text_blue
+declare -r line="=========================================="
+
+# Display storage information
+echo -e "${line}\n"
+echo -e "${text_blue}${text_bold}Storage Information:${text_reset}"
+echo -e "Filesystem      Size  Used Avail Use% Mounted on\n"
+
+# Instructions for editing the device path
+# Uncomment and edit the appropriate line to display specific device details
+# Example to display a specific device:
+# df -h | grep [device path]
+
+# Example to display all devices:
+# df -h
+
+# Error message for missing device path configuration
+echo -e "${text_red}${text_bold}ERROR${text_reset}: Please edit your device path in ${text_bold}${CURRENT_PATH}${text_reset}"
+echo -e "\n# Your device path is typically found in /dev"
+echo -e "# Example: /dev/sda1"
+echo -e "# For mounted drives, check /mnt or /media\n"
 
 echo -e "${line}\n"
-echo "${text_red}${text_bold}Storage:${text_reset}"
-echo "Filesystem      Size  Used Avail Use% Mounted on"
-#df -h | grep {device path}
-df -h | grep /dev/sda2 
-echo -e "${line}\n"
-echo "${text_red}${text_bold}Webserver online?${text_reset}"
+
+# Display webserver status
+echo -e "${text_blue}${text_bold}Webserver Status:${text_reset}"
 systemctl status apache2.service | grep 'Active:' | sed 's/^[ \t]*//'
 echo -e "${line}\n"
-
-# more to come 
