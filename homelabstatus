@@ -9,12 +9,15 @@ text_blue="$(tput setaf 4)"
 # Get the full path of the current script
 CURRENT_PATH=$(realpath -- "${BASH_SOURCE[0]}")
 
+# Dynamic line separator
+line=$(printf '=%.0s' $(seq 1 $(tput cols)))
+
 # Declare constants as read-only
 declare -r text_reset
 declare -r text_bold
 declare -r text_red
 declare -r text_blue
-declare -r line="=========================================="
+declare -r line
 
 # Display storage information
 echo -e "${line}\n"
