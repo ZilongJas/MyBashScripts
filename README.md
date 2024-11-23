@@ -1,3 +1,2 @@
-some random bash scripts by me. 
-some for practice, some for actual uses.
+Some random bash scripts coded from scratch by me. For practice and learning.
 
